@@ -149,4 +149,8 @@ angular.module("App", [])
       $scope.message = "";
     }, 1800000);
   };
+  
+  $scope.how = function() {
+    alert("You lose hunger and energy and must forage or fish to stay alive.");
+  };
 });
