@@ -7,30 +7,42 @@
 		<link rel="stylesheet" href="main.css" type="text/css" />
 	</head>
 	<body ng-app="App">
-		<div ng-controller="StatsCtrl">
-			<div class="row stats">
-				<ul>
-					<li><h2>Stats:</h2></li>
-					<li><h5>Food: <span>{{ player.food }}</span></h5></li>
-					<li><h5>Water: <span>{{ player.water }}</span></h5></li>
-					<li><h5>Energy: <span>{{ player.energy }}</span></h5></li>
-					<li><button ng-show="!started" ng-click=startGame()>Start</button></li>
-				</ul>
-				<hr>
+		<div class="container">
+			<div ng-controller="AppCtrl">
+			<div ng-show="alive">
+				<div class="row stats">
+					<ul>
+						<li><h2>Stats:</h2></li>
+						<li><h5>Hunger: <span>{{ player.hunger }}</span></h5></li>
+						<li><h5>Energy: <span>{{ player.energy }}</span></h5></li>
+						<li><button ng-show="!started" ng-click=startGame()>Start</button></li>
+					</ul>
+					<hr>
+				</div>
+				<div ng-show="started"><br><br>
+					<div class="row inventory">
+						<ul>
+							<li><h2>Inventory</h2></li>
+							<li><h5>Fish:</h5>
+								<ul>
+									<li ng-repeat="fish in inventory[0].inventory track by $index">{{ fish.name }}: {{ fish.food }} <span ng-click="eatFish(fish)">Eat</span></li>
+								</ul>
+							</li>
+							<li><h5 class="berries">Nuts &amp; Berries: {{ inventory[1].amount }}</h5> <span ng-click=eatBerries()>Eat</span></li>
+						</ul>
+					</div>
+					<div class="row">
+						<button ng-click="forage()">Forage</button> <br>
+						<button ng-click=fishing()>Go Fishing</button>
+						<button ng-click=camp() ng-show="camped">Camp</button>
+					</div>
+				</div>
 			</div>
-			<div class="row inventory">
-				<ul>
-					<li><h2>Inventory</h2></li>
-					<li><h5>Fish: {{ inventory[0].amount }}</h5></li>
-					<li><h5>Nuts &amp; Berries: {{ inventory[1].amount }}</h5></li>
-					<li><h5>Canteen: {{ inventory[2].amount }}</h5></li>
-				</ul>
+			<div ng-show="started" class="message">
+				<h3>Status:</h3>
+				<h5>{{ message }}</h5>
 			</div>
-			<button ng-click=forage()>Forage</button> <br>
-			<button>Eat</button>
 		</div>
-		<div ng-controller="ForageCtrl">
-			
 		</div>
 		<script src="js/angular.js"></script>
 		<script src="js/App.js"></script>

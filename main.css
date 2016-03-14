@@ -10,3 +10,15 @@ hr, ul, li, h2, h5 {
 li {
   list-style: none;
 }
+
+.inventory span {
+  background: coral;
+  padding: 5px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.berries {
+  display: inline;
+}
