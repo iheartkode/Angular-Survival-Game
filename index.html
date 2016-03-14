@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" type="text/css" />
+		<link rel="stylesheet" href="main.css" type="text/css" />
+	</head>
+	<body ng-app="App">
+		<div ng-controller="StatsCtrl">
+			<div class="row stats">
+				<ul>
+					<li><h2>Stats:</h2></li>
+					<li><h5>Food: <span>{{ player.food }}</span></h5></li>
+					<li><h5>Water: <span>{{ player.water }}</span></h5></li>
+					<li><h5>Energy: <span>{{ player.energy }}</span></h5></li>
+					<li><button ng-show="!started" ng-click=startGame()>Start</button></li>
+				</ul>
+				<hr>
+			</div>
+			<div class="row inventory">
+				<ul>
+					<li><h2>Inventory</h2></li>
+					<li><h5>Fish: {{ inventory[0].amount }}</h5></li>
+					<li><h5>Nuts &amp; Berries: {{ inventory[1].amount }}</h5></li>
+					<li><h5>Canteen: {{ inventory[2].amount }}</h5></li>
+				</ul>
+			</div>
+			<button ng-click=forage()>Forage</button> <br>
+			<button>Eat</button>
+		</div>
+		<div ng-controller="ForageCtrl">
+			
+		</div>
+		<script src="js/angular.js"></script>
+		<script src="js/App.js"></script>
+	</body>
+</html>

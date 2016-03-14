@@ -1,0 +1,12 @@
+hr, ul, li, h2, h5 {
+  margin: 0;
+}
+
+.stats li {
+  display: inline-block;
+  margin: 0 25px 0 0;
+}
+
+li {
+  list-style: none;
+}
